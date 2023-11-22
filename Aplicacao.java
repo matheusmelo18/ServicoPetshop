@@ -27,8 +27,18 @@ public class Aplicacao {
                     System.out.println("Digite os dados do Pet:");
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
-                    // (Receba outros dados do Pet)
-                    Pet novoPet = new Pet(nome, /* outros dados */);
+                    System.out.print("Tipo: ");
+                    String tipo = scanner.nextLine();
+                    System.out.print("Raça: ");
+                    String raca = scanner.nextLine();
+                    System.out.print("Idade: ");
+                    int idade = scanner.nextInt();
+                    scanner.nextLine(); // Consumir a quebra de linha após o número
+                    System.out.print("Nome do Dono: ");
+                    String nomeDono = scanner.nextLine();
+                    System.out.print("Telefone do Dono: ");
+                    String telefoneDono = scanner.nextLine();
+                    Pet novoPet = new Pet(nome, tipo, raca, idade, nomeDono, telefoneDono);
                     cadastro.adicionarPet(novoPet);
                     break;
 
