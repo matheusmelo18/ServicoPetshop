@@ -38,7 +38,9 @@ public class Aplicacao {
                     String nomeDono = scanner.nextLine();
                     System.out.print("Telefone do Dono: ");
                     String telefoneDono = scanner.nextLine();
-                    Pet novoPet = new Pet(nome, tipo, raca, idade, nomeDono, telefoneDono);
+                    System.out.print("Serviço: ");
+                    String servico = scanner.nextLine();
+                    Pet novoPet = new Pet(nome, tipo, raca, idade, nomeDono, telefoneDono, servico);
                     cadastro.adicionarPet(novoPet);
                     break;
 
