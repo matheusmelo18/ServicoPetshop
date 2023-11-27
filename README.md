@@ -44,3 +44,11 @@ Classe Aplicacao
 
 A classe "Aplicacao" ira executar todos os métodos da classe "CadastroPet". A classe serve também para disponibilizar ao cliente uma opção de menu, para que assim ele possa escolher mais de um opção de serviço para o seu pet sem a necessidade de rodar o programa novamente.
 
+Dificuldades e ensinamentos do trabalho
+
+Para ambos os integrantes do grupo, foi um consenso que a maior dificuldade encontrada foi para a organização lógica, com tantas variáveis, tantas informações em diferentes classes, achar uma maneira de organização. Outra dificuldade foi entender os erros nos momentos de testes do programa nos quais ocorria algum imprevisto. Porém com pesquisa, trabalho criativo em conjunto, o qual foi muito util uma vez que cada integrante tinha ideias diferentes para resolver os problemas, foram solucionados da maneira mais adequado.
+
+Em anexo o video do pitch:
+
+https://www.youtube.com/watch?v=30DyaHUXKXw&ab_channel=maluconadaver
+
