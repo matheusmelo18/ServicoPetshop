@@ -4,7 +4,7 @@ public class Aplicacao {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CadastroPet cadastro = new CadastroPet();
-
+        
         int opcao;
 
         do {
@@ -20,7 +20,7 @@ public class Aplicacao {
 
             opcao = scanner.nextInt();
             scanner.nextLine(); // Consumir a quebra de linha após o número
-
+            
             switch (opcao) {
                 case 1:
                     // Adicionar Pet
@@ -63,7 +63,7 @@ public class Aplicacao {
 
                 case 5:
                     // Calcular Média de Serviços
-                    double mediaServicos = cadastro.calcularMediaServicos();
+                    double mediaServicos = cadastro.calcularMediaServicos("Banho");
                     System.out.println("Média de serviços utilizados: " + mediaServicos);
                     break;
 
