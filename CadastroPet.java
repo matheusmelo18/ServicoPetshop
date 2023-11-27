@@ -9,6 +9,8 @@ public class CadastroPet {
         this.numPets = 0;
     }
 
+    // Métodos da classe...
+
     // Método para adicionar um pet ao vetor
     public void adicionarPet(Pet pet) {
         if (numPets < LIMITE_PETS) {
@@ -24,8 +26,7 @@ public class CadastroPet {
         }
     }
 
-    // Outros métodos...
-
+    // Método privado para verificar se um pet já existe pelo nome
     private boolean petJaExiste(String nome) {
         for (int i = 0; i < numPets; i++) {
             if (pets[i].getNome().equals(nome)) {
@@ -35,6 +36,7 @@ public class CadastroPet {
         return false;
     }
 
+    // Método para remover um pet pelo nome
     public void removerPet(String nome) {
         int indicePet = buscarPetPorNome(nome);
 
@@ -48,6 +50,7 @@ public class CadastroPet {
         }
     }
 
+    // Método privado para buscar um pet pelo nome
     private int buscarPetPorNome(String nome) {
         for (int i = 0; i < numPets; i++) {
             if (pets[i].getNome().equals(nome)) {
@@ -57,12 +60,14 @@ public class CadastroPet {
         return -1;
     }
 
+    // Método para escrever os dados dos pets
     public void escreverVetor() {
         for (int i = 0; i < numPets; i++) {
             System.out.println(pets[i]);
         }
     }
 
+    // Método para escrever os nomes dos pets ordenados
     public void escreverNomesOrdenados() {
         String[] nomes = new String[numPets];
 
@@ -87,46 +92,52 @@ public class CadastroPet {
         }
     }
 
-    public double calcularMediaServicos() {
-        int totalServicos = 0;
+    // Método para calcular a média de serviços baseado em um tipo específico de serviço
+    public double calcularMediaServicos(String tipoServico) {
+        int totalServicos = 3;
+        int numPetsComServico = 1;
 
         for (int i = 0; i < numPets; i++) {
-            totalServicos += pets[i].getNumServicosRealizados();
-        }
-
-        return (double) totalServicos / numPets;
-    }
-
-    public void calcularPorcentagemServicos() {
-        int[] totalServicos = new int[6];
-
-        for (int i = 0; i < numPets; i++) {
-            for (int j = 0; j < pets[i].getServicosUtilizados().length; j++) {
-                totalServicos[j] += pets[i].getServicosUtilizados()[j];
+            if (pets[i].getServico().equalsIgnoreCase(tipoServico)) {
+                totalServicos += pets[i].getNumServicosRealizados();
+                numPetsComServico++;
             }
         }
 
-        int totalServicosPets = 0;
+        return numPetsComServico == 0 ? 0 : (double) totalServicos / numPetsComServico;
+    }
+
+    // Método para calcular a porcentagem de serviços por tipo
+    public void calcularPorcentagemServicos() {
+        int totalBanho = 1;
+        int totalTosa = 1;
+        int totalConsulta = 1;
+        int totalServicosPets = 1;
+
         for (int i = 0; i < numPets; i++) {
+            switch (pets[i].getServico().toLowerCase()) {
+                case "banho":
+                    totalBanho += pets[i].getNumServicosRealizados();
+                    break;
+                case "tosa":
+                    totalTosa += pets[i].getNumServicosRealizados();
+                    break;
+                case "consulta":
+                    totalConsulta += pets[i].getNumServicosRealizados();
+                    break;
+            }
             totalServicosPets += pets[i].getNumServicosRealizados();
         }
 
         if (totalServicosPets != 0) {
-            System.out.println("Porcentagem de cada serviço usado no mês:");
-            for (int i = 0; i < totalServicos.length; i++) {
-                double porcentagem = (double) totalServicos[i] / totalServicosPets * 100;
-                System.out.println("Serviço " + (i + 1) + ": " + porcentagem + "%");
-            }
+            System.out.println("Porcentagem de cada tipo de serviço usado no mês:");
+            System.out.println("Banho: " + (double) totalBanho / totalServicosPets * 100 + "%");
+            System.out.println("Tosa: " + (double) totalTosa / totalServicosPets * 100 + "%");
+            System.out.println("Consulta: " + (double) totalConsulta / totalServicosPets * 100 + "%");
         } else {
             System.out.println("Nenhum serviço foi utilizado no mês.");
         }
     }
 
-    // Método para indicar em que posição do vetor os pets estão
-    public void indicarPosicaoPets() {
-        for (int i = 0; i < numPets; i++) {
-            System.out.println("Pet " + pets[i].getNome() +
-                    " está na posição " + (i + 1) + " do vetor.");
-        }
-    }
+ 
 }
