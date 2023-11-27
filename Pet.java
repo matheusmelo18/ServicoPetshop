@@ -5,8 +5,6 @@ public class Pet {
     private int idade;
     private String nomeDono;
     private String telefoneDono;
-    private String[] agendamentoServicos;
-    private int[] servicosUtilizados;
     private int numServicosRealizados;
     private String servico;
 
@@ -18,15 +16,11 @@ public class Pet {
         this.idade = idade;
         this.nomeDono = nomeDono;
         this.telefoneDono = telefoneDono;
-        this.agendamentoServicos = new String[6];
-        this.servicosUtilizados = new int[6];
         this.numServicosRealizados = 0;
         this.servico = servico;
     }
 
     // Métodos getters e setters...
-    
-
 
     public String getNome() {
         return nome;
@@ -76,22 +70,6 @@ public class Pet {
         this.telefoneDono = telefoneDono;
     }
 
-    public String[] getAgendamentoServicos() {
-        return agendamentoServicos;
-    }
-
-    public void setAgendamentoServicos(String[] agendamentoServicos) {
-        this.agendamentoServicos = agendamentoServicos;
-    }
-
-    public int[] getServicosUtilizados() {
-        return servicosUtilizados;
-    }
-
-    public void setServicosUtilizados(int[] servicosUtilizados) {
-        this.servicosUtilizados = servicosUtilizados;
-    }
-
     public int getNumServicosRealizados() {
         return numServicosRealizados;
     }
@@ -107,7 +85,8 @@ public class Pet {
     public void setServico(String servico) {
         this.servico = servico;
     }
-        @Override
+
+    @Override
     public String toString() {
         return "Pet{" +
                 "nome='" + nome + '\'' +
